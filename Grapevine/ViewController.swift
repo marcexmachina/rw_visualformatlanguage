@@ -49,13 +49,11 @@ class ViewController: UIViewController {
                  "summaryLabel": summaryLabel,
                  "pageControl": pageControl] as [String: Any]
     
-    //2
     var allConstraints = [NSLayoutConstraint]()
     
     let metrics = ["hp": horizontalPadding,
                    "iconImageViewWidth": 30.0]
     
-    //3
     let iconVerticalConstraints = NSLayoutConstraint.constraints(
       withVisualFormat: "V:|-20-[iconImageView(30)]",
       options: [],
@@ -63,7 +61,6 @@ class ViewController: UIViewController {
       views: views)
     allConstraints += iconVerticalConstraints
     
-    //6
     let topRowHorizontalConstraints = NSLayoutConstraint.constraints(
       withVisualFormat: "H:|-hp-[iconImageView(iconImageViewWidth)]-[appNameLabel]-[skipButton]-hp-|",
       options: [.alignAllCenterY],
@@ -106,7 +103,6 @@ class ViewController: UIViewController {
       views: views)
     allConstraints += summaryToPageVerticalConstraints
     
-    //7 Activate all the previous VFL constraints
     NSLayoutConstraint.activate(allConstraints)
     
   }
