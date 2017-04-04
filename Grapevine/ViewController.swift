@@ -41,25 +41,27 @@ class ViewController: UIViewController {
     
     // Start of VFL tutorial
     // 1
-    let views = ["iconImageView": iconImageView,
+    let views: [String: Any] = ["iconImageView": iconImageView,
                  "appNameLabel": appNameLabel,
                  "skipButton": skipButton,
                  "appImageView": appImageView,
                  "welcomeLabel": welcomeLabel,
                  "summaryLabel": summaryLabel,
-                 "pageControl": pageControl] as [String: Any]
+                 "pageControl": pageControl,
+                 "topLayoutGuide": topLayoutGuide,
+                 "bottomLayoutGuide": bottomLayoutGuide]
     
     var allConstraints = [NSLayoutConstraint]()
     
     let metrics = ["hp": horizontalPadding,
                    "iconImageViewWidth": 30.0]
     
-    let iconVerticalConstraints = NSLayoutConstraint.constraints(
-      withVisualFormat: "V:|-20-[iconImageView(30)]",
+    let verticalConstraints = NSLayoutConstraint.constraints(
+      withVisualFormat: "V:[topLayoutGuide]-[iconImageView(30)]",
       options: [],
       metrics: nil,
       views: views)
-    allConstraints += iconVerticalConstraints
+    allConstraints += verticalConstraints
     
     let topRowHorizontalConstraints = NSLayoutConstraint.constraints(
       withVisualFormat: "H:|-hp-[iconImageView(iconImageViewWidth)]-[appNameLabel]-[skipButton]-hp-|",
